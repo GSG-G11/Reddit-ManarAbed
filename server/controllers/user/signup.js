@@ -20,7 +20,7 @@ const signup = (req, res, next) => {
     .then(token => createCookies(res,token))
     .catch(err => {
         if(err.name === 'ValidationError'){
-            res.status(403).json({ message: err })
+            res.json({ message: err })
         }else{
             next(err)
         }
