@@ -6,4 +6,4 @@ const getFetch  = (url, handelDom) =>{
         throw new Error(err)
     })
 }
-module.exports = getFetch
+

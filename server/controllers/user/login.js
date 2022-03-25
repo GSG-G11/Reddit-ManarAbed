@@ -14,7 +14,7 @@ const login = (req, res, next) => {
             id = data.rows[0].id
             return compare(password, data.rows[0].password)
         }else{
-           next(createError(`this email is exists!` , 404))
+           next(createError(`This is not Your Email` , 404))
         }
     })
     .then((isMatch) =>{
@@ -26,7 +26,7 @@ const login = (req, res, next) => {
     .then(token => createCookies(res,token))
     .catch(err => {
         if(err.name === 'ValidationError'){
-            res.status(403).json({ message: err })
+            res.json({ message: err })
         }else{
             next(err)
         }
