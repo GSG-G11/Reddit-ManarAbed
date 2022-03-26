@@ -12,7 +12,7 @@ const signup = (req, res, next) => {
         if(data.rowCount === 0) {
            return hashPassword(password)
         }else{
-            next(createError(`this email is exists!` , 500))
+            res.json({ message: 'This email has already registered' });
         }
     })
     .then(hashPassword => addUserQu(name, email, hashPassword))

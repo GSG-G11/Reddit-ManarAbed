@@ -3,5 +3,5 @@ const postFetch  = (url, data, handelDom) =>{
     .then((result) => result.json())
     .then((json) => {
       handelDom(json)
-    }).catch();
+    }).catch((err) => console.log(err.message));
 }

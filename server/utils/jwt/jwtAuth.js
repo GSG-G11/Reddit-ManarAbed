@@ -14,7 +14,8 @@ const createCookies = (res,token)=>{
     res.cookie('user_access' , token , {
         expires : new Date(Date.now() + 15 * 60 * 1000),
         httpOnly: true
-    }).status(201).json({message: 'Welcome To Home Page'})
+    })
+    res.status(200).redirect('/home')
 }
 //redirect('/')
 // const VerfiyAuth = () =>{
