@@ -11,6 +11,6 @@ require('dotenv').config();
   
     console.log('Tables created successfully');
   });
-  
+  // \i 'C:\\Users\\hp\\Desktop\\Reddit-ManarAbed\\server\\database\\config\\build.sql';
   connection.end();
  

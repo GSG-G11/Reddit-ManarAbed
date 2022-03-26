@@ -11,11 +11,10 @@ CREATE TABLE users(
 
 CREATE TABLE posts(
     id SERIAL PRIMARY KEY,
-    username VARCHAR(255) NOT NULL,
     title VARCHAR(255) NOT NULL,
     content TEXT NOT NULL,
-    user_id int,
-    foreign key (user_id) REFERENCES users(id)
+    userId int,
+    foreign key (userId) REFERENCES users(id)
 );
 
 CREATE TABLE comments(
@@ -41,10 +40,13 @@ CREATE TABLE category_post(
 
     PRIMARY KEY (post_id, category_id)
 );
+INSERT INTO users(name, email, password) VALUES 
+    ('Ali','ali@gmail.com', '$2b$10$w.eRTveDIOUknuq1Y1QFv.TqRjgimjL3zph2I52HzLpuWIQKlPV3y'),
+    ('Sami','sami@gmail.com', '$2b$10$w.eRTveDIOUknuq1Y1QFv.TqRjgimjL3zph2I52HzLpuWIQKlPV3y');
 
-INSERT INTO posts(username, title, content) VALUES 
-    ('Ali','Hello from DB', 'bla bla blablablabla'),
-    ('Sami','Hello from express', 'bla bla blablablabla');
+INSERT INTO posts(title, content, userId) VALUES 
+    ('Hello from DB', 'bla bla blablablabla',1),
+    ('Hello from express', 'bla bla blablablabla',2);
 
 INSERT INTO comments(username, content, post_id) VALUES 
     ('ali','Hello from DB', 1),

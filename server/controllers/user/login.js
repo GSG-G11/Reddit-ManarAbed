@@ -14,12 +14,12 @@ const login = (req, res, next) => {
             id = data.rows[0].id
             return compare(password, data.rows[0].password)
         }else{
-           next(createError(`This is not Your Email` , 404))
+            res.status(404).json({ message: 'This email hasn\'t registered yet' });
         }
     })
     .then((isMatch) =>{
         if(!isMatch){
-            next(createError(`Wrong Password` , 404))
+            res.status(404).json({ message: 'Wrong Password' });
         }
     })
     .then(() => createToken({id, email}))

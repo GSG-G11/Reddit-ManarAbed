@@ -1,5 +1,4 @@
-signform.addEventListener("submit",(e) =>{
-    console.log(signBtn)
+signBtn.addEventListener("click",(e) =>{
     e.preventDefault();
-    postFetch('/user/signup' , { name: username.value, email: email.value, password: password.value },loginSignupHandler) 
+    postFetch('/signup' , { name: username.value, email: email.value, password: password.value },loginSignupHandler) 
 })

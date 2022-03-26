@@ -13,8 +13,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(join(__dirname, '..', 'public')));
 app.use(express.json());
 
-app.use('/user', userRoutes);
-app.use(postRoutes);
+app.use('/', userRoutes);
+app.use('/posts', postRoutes);
 
 app.use(errorHandler);
 
