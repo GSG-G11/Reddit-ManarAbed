@@ -12,7 +12,7 @@ const createToken = ({email , id}) =>{
 };
 const createCookies = (res,token)=>{
     res.cookie('user_access' , token , {
-        expires : new Date(Date.now() + 15 * 60 * 1000),
+        expires : new Date(Date.now() + 15 * 60 * 100000),
         httpOnly: true
     })
     res.status(200).redirect('/home')

@@ -2,7 +2,7 @@ const singupValidate = require('../../utils/validation/signupSchema');
 const hashPassword = require('../../utils/password/hashpassword');
 const { addUserQu,checkUserQuery } = require('../../database/queries');
 const { createToken , createCookies } = require('../../utils/jwt/jwtAuth')
-const createError = require('../../errors/customError')
+const createError = require('../../errors/customError');
 
 const signup = (req, res, next) => {
     const {name, email, password} = req.body; 
@@ -17,7 +17,7 @@ const signup = (req, res, next) => {
     })
     .then(hashPassword => addUserQu(name, email, hashPassword))
     .then(data => createToken({id: data.rows[0].id , email: data.rows[0].email}))
-    .then(token => createCookies(res,token))
+    .then(token => createCookies(res, token))
     .catch(err => {
         if(err.name === 'ValidationError'){
             res.json({ message: err })

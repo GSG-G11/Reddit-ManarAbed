@@ -1,9 +1,9 @@
-const { getUserByIDQuery } = require('../../database/queries')
+const { getUserByIDQu } = require('../../database/queries')
 const createError = require('../../errors/customError')
 
-const getUser = (req , res , next) => {
-    getUserByIDQuery(req.params.id)
-    .then((data) =>  res.status(200).json(data.rows[0]))
-    .catch((err) => res.json(err.message))
+const getUserHandel = (req , res , next) => {
+    getUserByIDQu(req.params.id)
+    .then((data) =>  res.status(200).json(data.rows))
+    .catch((err) => res.status(500).json(err.message))
 }
-module.exports = getUser
+module.exports = getUserHandel
