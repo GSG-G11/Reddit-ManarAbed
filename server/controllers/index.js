@@ -3,10 +3,13 @@ const login = require('./user/login');
 const loginPage = require('./page/login');
 const signupPage = require('./page/signup');
 const profilePage = require('./page/profile');
+const addPostPage = require('./page/addPost');
 const logout = require('./user/logout');
-const getUser = require('./user/getUser');
+const getUserHandel = require('./user/getUser');
 
-const postHandelar = require('./post/allPosts');
+const postHandelar= require('./post/allPosts');
+const AddpostHandelar = require('./post/addpost');
+const deletepostHandelar = require('./post/deletePost');
 const getDecoded = require('./user/getDecoded');
 
 module.exports = {
@@ -14,9 +17,12 @@ module.exports = {
     login,
     loginPage,
     signupPage,
+    addPostPage,
     logout,
     getDecoded,
-    getUser,
+    getUserHandel,
     profilePage,
-    postHandelar
+    postHandelar,
+    AddpostHandelar,
+    deletepostHandelar
 }

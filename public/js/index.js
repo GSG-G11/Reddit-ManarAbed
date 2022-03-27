@@ -1,15 +1,15 @@
 window.addEventListener('load', () => {
     // get all posts
-    getFetch('/posts' ,(data) =>{
-        console.log(data);
-    })
+    getFetch('/posts' , getAllPosts)
+
     // to get decoded data and display username in header
     getFetch('/cookie', (data) => {
         getFetch(`/${data.id}` , (allData) => {
+            console.log(allData);
             const usernameDiv = document.querySelector(".username-div")
             const a = document.createElement('a');
             a.href = `/${data.id}/profile`;
-            a.textContent = allData.name;
+            a.textContent = allData[0].name;
             usernameDiv.appendChild(a);
         })
     });
