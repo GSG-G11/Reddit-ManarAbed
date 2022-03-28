@@ -4,19 +4,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/../css/styles.css" />
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="icon" type="image/x-icon" href="https://iconarchive.com/download/i83682/uiconstock/stitched-social-media/reddit.ico">
     <title>Reddit</title>
 </head>
 <body>
-    <h1>profile</h1>
-    <div>
-        <p id="username"></p>
-        <button id="add-post"><a id="addPostA">Add Post</a></button>
-        <div id="userPosts">
+    <header>
+        <nav class="navbar navbar-expand-lg">
+          <a class="navbar-brand" href="/">
+            <img src="../images/Screenshot 2022-03-27 220007.png">
+          </a>
+          <form class="form-inline">
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+          </form>
+  
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+              </li>
+              <li class="nav-item username-div">
+              </li>
+              <li class="nav-item">
+                <button class="signUp btn btn-primary"><a href="/signup">Sign Up</a></button>
+                <button  class="signIn btn btn-primary"><a href="/login">Log In</a></button>
+                <button  class="logout btn btn-primary"><a href="/logout">logout</a></button>
+              </li>
+            </ul>
+          </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
             
+            <div id="userPosts"></div>
         </div>
-    </div>
+        <div class="aside">
+        <div>
+            <img src="../images/home-banner@2x.png" class="home-ban">
+        </div>
+        <div class="image-title">
+            <img src="../images/snoo-home@2x.png" class="redd-img">
+            <p class="head" id="username"></p>
+        </div>
+        <p class="red-desc">Your personal Reddit frontpage. Come here to check in with your favorite communities.</p>
+        <div class="addBtn-div">
+        <button id="add-post" class="btn btn-primary"><a id="addPostA">Add Post</a></button>
+        </div>
+        </div>
+    </main>
+
 </body>
     <script src="/../js/dom.js"></script>
     <script src="/../js/getFetch.js"></script>
