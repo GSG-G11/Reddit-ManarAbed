@@ -1,0 +1,173 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Nunito+Sans&family=Poppins:wght@100;400&display=swap');
+
+main{
+    background-color: #DAE0E6;
+    display: flex;
+    justify-content: center;
+    padding: 39px 0px;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+header{
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+.navbar {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+}
+.navbar-brand {
+    display: inline-block;
+    padding-top: 0.3125rem;
+    padding-bottom: 0.3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+}
+a {
+    text-decoration: none;
+    background-color: transparent;
+}
+.navbar-collapse {
+    flex-basis: 100%;
+    /* flex-grow: 1; */
+    align-items: center;
+}
+.navbar-expand-lg .navbar-collapse {
+    display: flex!important;
+    flex-basis: auto;
+    width: 30%;
+}
+.navbar-expand-lg .navbar-nav {
+    flex-direction: row;
+    width: 100%;
+}
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 14px;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.btn a{
+    color: #fff;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+.navbar-nav {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    align-items: center;
+}
+li.nav-item {
+    margin-left: 3%;
+}
+.navbar-nav .nav-link, .nav-link {
+    color: rgba(0,0,0,.9);
+}
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+}
+.form-inline .form-control {
+    display: inline-block;
+    width: 85%;
+    vertical-align: middle;
+}
+.form-control {
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.form-inline {
+    width: 32%;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+/* post div */
+img.redd-img {
+    width: 55px;
+}
+.image-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3%;
+}
+.image-title,.head,.red-desc,.addBtn-div{
+    padding: 1px 12px;
+}
+.aside {
+    background-color: #fff;
+    border-radius: 7px;
+    /* height: auto; */
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    padding-bottom: 5px;
+}
+img.home-ban {
+    width: 100%;
+}
+.post-div {
+    margin-right: 1%;
+}
+.addBtn-div {
+    display: flex;
+    justify-content: center;
+    margin-top: 4%;
+}
+p.red-desc {
+    color: #1c1c1c;
+    font-size: 15px;
+    line-height: 21px;
+    letter-spacing: normal;
+    /* width: 90%; */
+}
+p.head {
+    margin-left: 5%;
+    font-weight: 700;
+}
+section.post-sec {
+    background-color: #fff;
+    margin-bottom: 3%;
+    display: flex;
+}
+i.bx.bx-up-arrow-alt {
+    font-size: 26px;
+    cursor: pointer;
+}
