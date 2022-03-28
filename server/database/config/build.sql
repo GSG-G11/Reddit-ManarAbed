@@ -1,6 +1,6 @@
 BEGIN;
 
-DROP TABLE IF EXISTS posts, comments, categories, category_post, users CASCADE;
+DROP TABLE IF EXISTS posts, comments, users CASCADE;
 
 CREATE TABLE users(
     id SERIAL PRIMARY KEY,
@@ -14,6 +14,7 @@ CREATE TABLE posts(
     title VARCHAR(255) NOT NULL,
     content TEXT NOT NULL,
     img_url TEXT,
+    votes_num int not null default 0,
     userId int,
     foreign key (userId) REFERENCES users(id)
 );
@@ -26,21 +27,6 @@ CREATE TABLE comments(
     foreign key (post_id) REFERENCES posts(id)
 );
 
-CREATE TABLE categories(
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    color VARCHAR(255)
-);
-
-
-CREATE TABLE category_post(
-    post_id int NOT NULL,
-    category_id int NOT NULL,
-    foreign key (post_id) REFERENCES posts(id),
-    foreign key (category_id) REFERENCES categories(id),
-
-    PRIMARY KEY (post_id, category_id)
-);
 INSERT INTO users(name, email, password) VALUES 
     ('Ali','ali@gmail.com', '$2b$10$w.eRTveDIOUknuq1Y1QFv.TqRjgimjL3zph2I52HzLpuWIQKlPV3y'),
     ('Sami','sami@gmail.com', '$2b$10$w.eRTveDIOUknuq1Y1QFv.TqRjgimjL3zph2I52HzLpuWIQKlPV3y');

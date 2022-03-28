@@ -13,10 +13,10 @@
     <h2>add Post</h2>
     <div>
         <form action="#">
-            <input type="text" id="title" placeholder="Post tile">
-            <textarea name="myTextarea" id="myTextarea" placeholder="Post Content"></textarea>
-            <input type="url" id="imgUrl" placeholder="Post Image (optional)">
-            <button type="button" id="save-post">Save</button>
+            <input type="text" id="title" placeholder="Post tile" required>
+            <textarea name="myTextarea" id="myTextarea" placeholder="Post Content" required></textarea>
+            <input type="url" id="imgUrl" placeholder="Post Image (optional)" required>
+            <button type="submit" id="save-post">Save</button>
         </form>
     </div>
 
@@ -34,6 +34,6 @@
     <script src="/../js/dom.js"></script>
     <script src="/../js/getFetch.js"></script>
     <script src="/../js/postFetch.js"></script>
-    <script src="/../js/profile.js"></script>
+    <script src="/../js/addPost.js"></script>
 </body>
 </html>

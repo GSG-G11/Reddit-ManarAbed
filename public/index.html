@@ -5,21 +5,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title> Reddit </title>
-    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="/../css/styles.css" />
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" type="image/x-icon" href="https://iconarchive.com/download/i83682/uiconstock/stitched-social-media/reddit.ico">
+    <!-- <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script> -->
   </head>
   <body>
     <header>
-      <nav>
-          <button class="signUp"><a href="/signup">Sign Up</a></button>
-          <button  class="signIn"><a href="/login">Log In</a></button>
-          <button  class="logout"><a href="/logout">logout</a></button>
-         <div class="username-div">
-           
-         </div>
-         <div class="post-div"></div>
+      <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="index.html">
+          <img src="images/Screenshot 2022-03-27 220007.png">
+        </a>
+        <form class="form-inline">
+          <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+        </form>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item username-div">
+            </li>
+            <li class="nav-item">
+              <button class="signUp btn btn-primary"><a href="/signup">Sign Up</a></button>
+              <button  class="signIn btn btn-primary"><a href="/login">Log In</a></button>
+              <button  class="logout btn btn-primary"><a href="/logout">logout</a></button>
+            </li>
+          </ul>
+        </div>
       </nav>
   </header>
+  
+  <main>
+    <div class="post-div"></div>
+    <div class="aside">
+      <div>
+        <img src="images/home-banner@2x.png" class="home-ban">
+      </div>
+      <div class="image-title">
+        <img src="images/snoo-home@2x.png" class="redd-img">
+        <p class="head"> Home </p>
+      </div>
+      <p class="red-desc">Your personal Reddit frontpage. Come here to check in with your favorite communities.</p>
+      <div class="addBtn-div">
+        <button class="btn btn-primary">Create Post</button>
+      </div>
+    </div>
+  </main>
+ 
+
   <script src="/../js/dom.js"></script>
   <script src="/../js/getFetch.js"></script>
   <script src="/../js/index.js"></script>

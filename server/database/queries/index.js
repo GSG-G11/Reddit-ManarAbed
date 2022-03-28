@@ -4,6 +4,7 @@ const getUserByIDQu = require('./user/getUserByID')
 const getPostQu = require('./post/getAllPostsQu');
 const addPostQu = require('./post/addPostQu')
 const deletePostQu = require('./post/deletePostQu');
+const updateVotesQu = require('./post/updatePostVotesQu');
 
 module.exports = {
     addUserQu,
@@ -11,5 +12,6 @@ module.exports = {
     getUserByIDQu,
     getPostQu,
     addPostQu,
-    deletePostQu
+    deletePostQu,
+    updateVotesQu
 }

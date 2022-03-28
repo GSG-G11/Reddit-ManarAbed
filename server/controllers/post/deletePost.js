@@ -3,11 +3,12 @@ const { deletePostQu } = require('../../database/queries');
 const deletepostHandelar = (req , res) =>{
 
     deletePostQu(req.params.id)
-    .then(() => {
+    .then((data) => {
         res.status(200).json({
-            message: 'Are you sure?'
+            message: 'Are you sure?',
+            DeletedPost : data.rows
         });
-    }).catch(() => res.json({ message: "error" }));
+    }).catch((err) => res.json({ message: err }));
 }
 
 module.exports = deletepostHandelar 
