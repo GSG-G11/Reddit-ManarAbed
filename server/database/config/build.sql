@@ -21,10 +21,11 @@ CREATE TABLE posts(
 
 CREATE TABLE comments(
     id SERIAL PRIMARY KEY,
-    username VARCHAR(255) NOT NULL,
     content TEXT NOT NULL,
     post_id int,
-    foreign key (post_id) REFERENCES posts(id)
+    user_id int,
+    foreign key (post_id) REFERENCES posts(id),
+    foreign key (user_id) REFERENCES users(id)
 );
 
 INSERT INTO users(name, email, password) VALUES 
@@ -35,9 +36,9 @@ INSERT INTO posts(title, content, img_url,userId) VALUES
     ('Hello from DB', 'bla bla blablablabla','https://preview.redd.it/62sxghg02qp81.jpg?width=640&crop=smart&auto=webp&s=7cc7269347ded051513f8ac6fa0bd318799c75a5',1),
     ('Hello from express', 'bla bla blablablabla','https://preview.redd.it/62sxghg02qp81.jpg?width=640&crop=smart&auto=webp&s=7cc7269347ded051513f8ac6fa0bd318799c75a5',2);
 
-INSERT INTO comments(username, content, post_id) VALUES 
-    ('ali','Hello from DB', 1),
-    ('mona','Hello from express', 1);
+INSERT INTO comments(content, post_id) VALUES 
+    ('Hello from DB',1),
+    ('Hello from express',2);
 
 
 COMMIT;

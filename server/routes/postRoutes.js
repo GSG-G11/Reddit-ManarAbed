@@ -1,5 +1,5 @@
 const express = require('express');
-const { postHandelar , AddpostHandelar, deletepostHandelar, addPostPage, updateVoteHandelar} = require('../controllers');
+const { postHandelar , AddpostHandelar, deletepostHandelar, addPostPage, updateVoteHandelar, CommentsHandelar} = require('../controllers');
 
 const postRoutes = express.Router();
 
@@ -12,5 +12,6 @@ postRoutes.delete('/delete/:id' , deletepostHandelar);
 
 postRoutes.put('/vote/:id/:userid' , updateVoteHandelar);
 
+postRoutes.get('/comments/:id' , CommentsHandelar);
 
 module.exports = postRoutes

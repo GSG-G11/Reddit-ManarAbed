@@ -6,20 +6,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="https://iconarchive.com/download/i83682/uiconstock/stitched-social-media/reddit.ico">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="/../css/styles.css" />
     <!-- <script src="https://cdn.tiny.cloud/1/svdhibx6c82vqcpk023xv5b1rxltsfehk384gr6tl46r9fiw/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script> -->
     <title>Submit Post</title>
 </head>
 <body>
-    <h2>add Post</h2>
-    <div>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+          <a class="navbar-brand" href="/">
+            <img src="/../images/Screenshot 2022-03-27 220007.png">
+          </a>
+          <form class="form-inline">
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+          </form>
+  
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+              </li>
+              <li class="nav-item username-div">
+              </li>
+              <li class="nav-item">
+                <button class="signUp btn btn-primary"><a href="/signup">Sign Up</a></button>
+                <button  class="signIn btn btn-primary"><a href="/login">Log In</a></button>
+                <button  class="logout btn btn-primary"><a href="/logout">logout</a></button>
+              </li>
+            </ul>
+          </div>
+        </nav>
+    </header>
+    <!-- <div>
         <form action="#">
-            <input type="text" id="title" placeholder="Post tile" required>
+            <input type="text" id="title" placeholder="Post title" required>
             <textarea name="myTextarea" id="myTextarea" placeholder="Post Content" required></textarea>
             <input type="url" id="imgUrl" placeholder="Post Image (optional)" required>
             <button type="submit" id="save-post">Save</button>
         </form>
+    </div> -->
+    <div class="Home-page">
+        <div class="container addPost">
+            <div class="formHolder">
+                <h2>Add Post</h2>
+                <form class="col-10 col-md-8 col-xl-7 content-form">
+                    <div class="form-group">
+                        <input class="form-control" type="text" id="title" placeholder="Post Title" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="myTextarea" id="myTextarea" placeholder="Post Content" required></textarea>   
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="url" id="imgUrl" placeholder="Image Url (optional)" required>
+                    </div>
+    
+                    <button type="submit" id="save-post" class="btn btn-primary saveBtn">Save</button>
+                </form>
+            </div>
+            <div class="imgHolder">
+                <img src="/../images/snoo-home@2x.png" class="rig-img">
+            </div>
+        </div>
     </div>
-
 
     <!-- <script>
         tinymce.init({
@@ -35,5 +82,6 @@
     <script src="/../js/getFetch.js"></script>
     <script src="/../js/postFetch.js"></script>
     <script src="/../js/addPost.js"></script>
+    <script src="/../js/index.js"></script>
 </body>
 </html>

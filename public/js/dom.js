@@ -31,6 +31,11 @@ const loginSignupHandler = (errorList) =>{
 
 };
 
+const createEle = (varName, elemName, classname) => {
+  document.createElement(elemName);
+  varName.className = classname
+}
+
 const getAllPosts = (data) => {
   data.forEach((post , i) => {
     if(data[i].title !== ''){
@@ -43,6 +48,20 @@ const getAllPosts = (data) => {
 
       const userinfo = document.createElement('div');
       userinfo.className = 'user-info';
+     //createEle(userinfo, 'div' , 'user-info')
+
+      const comments = document.createElement('div');
+      comments.className = 'comments';
+
+      const allComments = document.createElement('div');
+      allComments.className = 'allComments';
+
+      const commentImg = document.createElement('img');
+      commentImg.className = 'commentImg';
+      commentImg.src = 'images/icons8-comments-100.png';
+
+      const spancomm = document.createElement('span');
+      spancomm.textContent = 'submit comment'
 
       const h4 = document.createElement('h4');
       h4.innerHTML = `<span class="post-span">Posted by </span> ${post.name}`;
@@ -78,42 +97,80 @@ const getAllPosts = (data) => {
       section.className = 'post-sec';
 
       uparrow.addEventListener('click' ,(e)=>{
-        const voteVal = {
-          votes_num: post.votes_num += 1
-        }
-        fetch(`/posts/vote/${post.id}/${post.userid}`, { 
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(voteVal)
-        }).then((data) => data.json()).then((data) => {
-          voteNum.textContent = data.post[0].votes_num
-        }).catch((err) => console.log(err))
-
+        fetch('/cookie').then((data)=> data.json()).then((data)  => {
+          if(data.message === 'Unauthorized'){
+            // alert('you must be logged in firstly!')
+            Swal.fire({
+              icon: 'question',
+              title: 'Oops...',
+              text: 'Something went wrong! Maybe You are not logged in',
+              footer: '<a href="/login"> Why You are not login? </a>'
+            })
+          }else{
+            const voteVal = {
+              votes_num: post.votes_num += 1
+            }
+            fetch(`/posts/vote/${post.id}/${post.userid}`, { 
+              method: 'PUT',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(voteVal)
+            }).then((data) => data.json()).then((data) => {
+              voteNum.textContent = data.post[0].votes_num
+            }).catch((err) => console.log(err))
+          }
+        })
       });
 
       downarrow.addEventListener('click' ,(e)=>{
-        const voteVal = {
-          votes_num: post.votes_num -= 1
-        }
-        fetch(`/posts/vote/${post.id}/${post.userid}`, { 
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(voteVal)
-        }).then((data) => data.json()).then((data) => {
-          voteNum.textContent = data.post[0].votes_num
+        fetch('/cookie').then((data)=> data.json()).then((data)  => {
+          if(data.message === 'Unauthorized'){
+
+          }else{
+            const voteVal = {
+              votes_num: post.votes_num -= 1
+            }
+            fetch(`/posts/vote/${post.id}/${post.userid}`, { 
+              method: 'PUT',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(voteVal)
+
+            }).then((data) => data.json()).then((data) => {
+              voteNum.textContent = data.post[0].votes_num
+            }).catch((err) => console.log(err))
+          }
         }).catch((err) => console.log(err))
       })
-      userinfo.appendChild(userimg);
-      userinfo.appendChild(h4);
+
+      fetch(`/posts/comments/${post.id}`)
+      .then((data) => data.json())
+      .then(data => {
+        data.forEach((comment) =>{
+          const hr =  document.createElement('hr');
+
+          const comCont =  document.createElement('p');
+          comCont.textContent = comment.content;
+          allComments.appendChild(comCont);
+          allComments.appendChild(hr);
+          console.log(comment);
+        })
+      })
+      .catch((err) => console.log(err))
+
+      section.appendChild(arrowVote);
+      section.appendChild(PostInfo);
 
       PostInfo.appendChild(userinfo);
       PostInfo.appendChild(h3);
       PostInfo.appendChild(p);
       PostInfo.appendChild(img);
+      PostInfo.appendChild(comments);
+      PostInfo.appendChild(allComments);
+      
+      userinfo.appendChild(userimg);
+      userinfo.appendChild(h4);
 
-
-      section.appendChild(arrowVote);
-      section.appendChild(PostInfo);
+      comments.appendChild(commentImg);
+      comments.appendChild(spancomm);
 
       arrowVote.appendChild(uparrow);
       arrowVote.appendChild(voteNum);
