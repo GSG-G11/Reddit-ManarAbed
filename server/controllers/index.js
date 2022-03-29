@@ -12,6 +12,8 @@ const AddpostHandelar = require('./post/addpost');
 const deletepostHandelar = require('./post/deletePost');
 const getDecoded = require('./user/getDecoded');
 const updateVoteHandelar = require('./post/updatevotes');
+const CommentsHandelar = require('./comments/PostComments');
+const AddcommentHandelar = require('./comments/addComment');
 
 module.exports = {
     signup,
@@ -26,5 +28,7 @@ module.exports = {
     postHandelar,
     AddpostHandelar,
     deletepostHandelar,
-    updateVoteHandelar
+    updateVoteHandelar,
+    CommentsHandelar,
+    AddcommentHandelar
 }
