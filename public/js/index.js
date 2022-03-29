@@ -1,6 +1,7 @@
 const signup_Btn = document.querySelector('.signUp')
 const login_Btn = document.querySelector('.signIn')
 const logout_Btn = document.querySelector('.logout')
+const createPost = document.querySelector('#createPost')
 
 let userCom;
 window.addEventListener('load', () => {
@@ -27,17 +28,11 @@ window.addEventListener('load', () => {
         logout_Btn.style.display = 'inline-block';
         signup_Btn.style.display = 'none';
         login_Btn.style.display = 'none';
-        // if (window.location.href.includes('doctors')) {
-        //   addReview.style.display = 'inline-block';
-        // }
     };
     const hideLogout = () => {
         logout_Btn.style.display = 'none';
         signup_Btn.style.display = 'inline-block';
         login_Btn.style.display = 'inline-block';
-        // if (window.location.href.includes('doctors')) {
-        //   addReview.style.display = 'none';
-        // }
     };
     //console.log(PostDiv);
 });
