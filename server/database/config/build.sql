@@ -33,12 +33,12 @@ INSERT INTO users(name, email, password) VALUES
     ('Sami','sami@gmail.com', '$2b$10$w.eRTveDIOUknuq1Y1QFv.TqRjgimjL3zph2I52HzLpuWIQKlPV3y');
 
 INSERT INTO posts(title, content, img_url,userId) VALUES 
-    ('Hello from DB', 'bla bla blablablabla','https://preview.redd.it/62sxghg02qp81.jpg?width=640&crop=smart&auto=webp&s=7cc7269347ded051513f8ac6fa0bd318799c75a5',1),
-    ('Hello from express', 'bla bla blablablabla','https://preview.redd.it/62sxghg02qp81.jpg?width=640&crop=smart&auto=webp&s=7cc7269347ded051513f8ac6fa0bd318799c75a5',2);
+    ('Hello', 'bla bla blablablabla','https://preview.redd.it/62sxghg02qp81.jpg?width=640&crop=smart&auto=webp&s=7cc7269347ded051513f8ac6fa0bd318799c75a5',1),
+    ('Hi', 'bla bla blablablabla','https://preview.redd.it/62sxghg02qp81.jpg?width=640&crop=smart&auto=webp&s=7cc7269347ded051513f8ac6fa0bd318799c75a5',2);
 
 INSERT INTO comments(content, post_id) VALUES 
-    ('Hello from DB',1),
-    ('Hello from express',2);
+    ('test',1),
+    ('test',2);
 
 
 COMMIT;
