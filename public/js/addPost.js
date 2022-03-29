@@ -1,15 +1,12 @@
 const saveBtn = document.querySelector('#save-post');
+
 const userid = window.location.href.split('/')[4];
 
-saveBtn.addEventListener('click',(e) =>{
+saveBtn.addEventListener('click', (e) =>{
     e.preventDefault();
     const title = document.querySelector('#title')
     const content = document.querySelector('#myTextarea')
     const imgUrl = document.querySelector('#imgUrl')
-
-    // title.value = ''
-    // content.value= ''
-    // imgUrl.value= ''
 
     const data = {
         title: title.value,
@@ -26,4 +23,9 @@ saveBtn.addEventListener('click',(e) =>{
             timer: 1500
           })
     })
-})
+    title.value = ''
+    content.value= ''
+    imgUrl.value= ''
+}
+)
+//createPost.addEventListener('click',handeladdPost)

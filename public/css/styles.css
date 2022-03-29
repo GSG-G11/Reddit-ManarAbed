@@ -145,6 +145,7 @@ img.home-ban {
 }
 .post-div {
     margin-right: 1%;
+    width: 42%;
 }
 .addBtn-div {
     display: flex;
@@ -249,13 +250,14 @@ img.commentImg {
 .comments {
     display: flex;
     background-color: #e8ebeb;
-    width: 26%;
+    width: 30%;
     padding: 5px;
     align-items: center;
     border-radius: 3px;
     cursor: pointer;
     margin-top: 1%;
     margin-bottom: 2%;
+    justify-content: space-evenly;
 }
 .comments:hover {
     background-color: #d4d4d4;
@@ -263,19 +265,20 @@ img.commentImg {
 }
 .allComments {
     margin-bottom: 3%;
-    height: auto;
+    height: 80px;
     overflow-y: scroll;
 }
 .allComments p {
     margin-bottom: 1%;
 }
 .allComments hr {
-    border: 0.5px solid #ccc;
+    border: 0.5px solid #e4e4e4;
+    margin-bottom: 2%;
 }
-.allComments ::-webkit-scrollbar {
+::-webkit-scrollbar {
     width: 7px;
   }
-.allComments ::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     background: #9e9e9e;
     border-radius: 0px;
   }
@@ -317,4 +320,13 @@ button#save-post {
     width: 32%;
     font-size: 15px;
     margin-top: 2%;
+}
+img.postImg {
+    width: 100%;
+}
+/* .allComments div {
+    display: flex;
+} */
+.allComments div p:nth-child{
+    color: #ccc;
 }

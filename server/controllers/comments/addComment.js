@@ -2,14 +2,14 @@ const { addcommentQu } = require('../../database/queries');
 
 const AddcommentHandelar = (req , res) =>{
 
-    const {postId,userId} = req.params.id 
-    const {content} = req.body;
+    const { id, userid } = req.params
+    const { content } = req.body;
 
-    addcommentQu(content, postId, userId)
+    addcommentQu(content, id, userid)
     .then((data) => {
         res.status(201).json({
             message: 'comment added successflly !',
-            post: data.rows[0]
+            data: data.rows[0]
         });
     }).catch(() => res.json({ message: "oops! try Again!" }));
 }
