@@ -1,12 +1,12 @@
 const express = require('express');
-const { postHandelar , AddpostHandelar, deletepostHandelar, addPostPage, updateVoteHandelar, CommentsHandelar, AddcommentHandelar} = require('../controllers');
+const { postHandelar , AddpostHandelar, deletepostHandelar, addPostPage, updateVoteHandelar, CommentsHandelar, AddcommentHandelar,checkAuth} = require('../controllers');
 
 const postRoutes = express.Router();
 
 postRoutes.get('/' , postHandelar);
 
 postRoutes.post('/:id' , AddpostHandelar);
-postRoutes.get('/:id/add' , addPostPage);
+postRoutes.get('/:id/add', addPostPage);
 
 postRoutes.delete('/delete/:id' , deletepostHandelar);
 

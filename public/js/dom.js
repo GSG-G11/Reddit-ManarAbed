@@ -44,6 +44,7 @@ const getAllPosts = (data) => {
       const PostDiv = document.querySelector(".post-div")
 
       const createPost = document.querySelector('#createPost');
+      // createPost.addEventListener()
       createPost.href = `/posts/${post.id}/add`
 
 
