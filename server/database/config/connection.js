@@ -15,7 +15,7 @@
     
     const connection = new Pool({
       connectionString: URL,
-      ssl: false,
+      ssl: { rejectUnauthorized: false },
     });
     
     module.exports = connection;
