@@ -17,19 +17,20 @@ const createCookies = (res,token)=>{
     })
     res.status(200).redirect('/home')
 }
-//redirect('/')
-// const VerfiyAuth = () =>{
-//     return new Promise((resolve, reject) =>{
-//         jwt.verify({email , id} , process.env.JWT_SECRET , (err , token) => {
-//             if(err) reject(err);
-//             else{
-//                 resolve(token);
-//             }
-//         });
-//     })
-// };
+
+const VerfiyAuth = () =>{
+    return new Promise((resolve, reject) =>{
+        jwt.verify({email , id} , process.env.JWT_SECRET , (err , token) => {
+            if(err) reject(err);
+            else{
+             resolve(token);
+            }
+        });
+    })
+};
 
 module.exports = {
     createToken,
-    createCookies
+    createCookies,
+    VerfiyAuth
 }

@@ -14,6 +14,7 @@ const getDecoded = require('./user/getDecoded');
 const updateVoteHandelar = require('./post/updatevotes');
 const CommentsHandelar = require('./comments/PostComments');
 const AddcommentHandelar = require('./comments/addComment');
+const checkAuth = require('./authController');
 
 module.exports = {
     signup,
@@ -30,5 +31,6 @@ module.exports = {
     deletepostHandelar,
     updateVoteHandelar,
     CommentsHandelar,
-    AddcommentHandelar
+    AddcommentHandelar,
+    checkAuth
 }
