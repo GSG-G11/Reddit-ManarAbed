@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const { join } = require('path');
 const cookieParser = require('cookie-parser');
@@ -6,6 +7,9 @@ const userRoutes = require('./routes/userRoutes');
 const postRoutes = require('./routes/postRoutes');
 
 const app = express();
+
+const PORT = process.env.PORT || 3000;
+app.set('port', PORT);
 
 app.use(cookieParser());
 app.disable('x-powered-by');
