@@ -1,16 +1,15 @@
 require('dotenv').config();
-  const fs = require('fs');
-  const connection = require('./connection');
+const { join } = require('path');
+const fs = require('fs');
+const connection = require('../../config/connection');
   
-  const sqlFile = fs.readFileSync('./server/database/config/build.sql', 'utf8');
+  const dbBuild = () => {
+    const sql = fs.readFileSync(join(__dirname, 'build.sql')).toString();
+    return connection.query(sql);
+  };
   
-  connection.query(sqlFile, (err, res) => {
-    if (err) {
-      console.log('Error creating tables: ', err);
-    }
-  
-    console.log('Tables created successfully');
-  });
   // \i 'C:\\Users\\hp\\Desktop\\Reddit-ManarAbed\\server\\database\\config\\build.sql';
-  connection.end();
+
+
+  module.exports = dbBuild;
  
