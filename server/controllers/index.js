@@ -10,8 +10,10 @@ const getUserHandel = require('./user/getUser');
 const postHandelar= require('./post/allPosts');
 const AddpostHandelar = require('./post/addpost');
 const deletepostHandelar = require('./post/deletePost');
+const searchPostHandelar = require('./post/getSearchedPost');
 const getDecoded = require('./user/getDecoded');
 const updateVoteHandelar = require('./post/updatevotes');
+
 const CommentsHandelar = require('./comments/PostComments');
 const AddcommentHandelar = require('./comments/addComment');
 const checkAuth = require('./authController');
@@ -32,5 +34,6 @@ module.exports = {
     updateVoteHandelar,
     CommentsHandelar,
     AddcommentHandelar,
-    checkAuth
+    checkAuth,
+    searchPostHandelar
 }
