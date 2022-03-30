@@ -41,12 +41,21 @@ const loginSignupHandler = (errorList) =>{
 const getAllPosts = (data) => {
   data.forEach((post , i) => {
     if(data[i].title !== ''){
-      const PostDiv = document.querySelector(".post-div")
+      const PostDiv = document.querySelector(".post-div");
 
       const createPost = document.querySelector('#createPost');
-      // createPost.addEventListener()
-      createPost.href = `/posts/${post.id}/add`
-
+      createPost.addEventListener('click',()=>{
+        if(!document.querySelector('.username-div').children[0].innerHTML){
+          Swal.fire({
+            icon: 'question',
+            title: 'Oops...',
+            text: 'Something went wrong! Maybe You are not logged in',
+            footer: '<a href="/login"> Why You are not login? </a>'
+          })
+        }else{
+          createPost.href = `/posts/${post.id}/add`;
+        }
+      });
 
       const userimg = document.createElement('img');
       userimg.src = 'images/communityIcon_9jufwkeep7f41.jpeg';
@@ -151,7 +160,6 @@ const getAllPosts = (data) => {
       uparrow.addEventListener('click' ,(e)=>{
         fetch('/cookie').then((data)=> data.json()).then((data)  => {
           if(data.message === 'Unauthorized'){
-            // alert('you must be logged in firstly!')
             Swal.fire({
               icon: 'question',
               title: 'Oops...',
@@ -176,7 +184,12 @@ const getAllPosts = (data) => {
       downarrow.addEventListener('click' ,(e)=>{
         fetch('/cookie').then((data)=> data.json()).then((data)  => {
           if(data.message === 'Unauthorized'){
-
+            Swal.fire({
+              icon: 'question',
+              title: 'Oops...',
+              text: 'Something went wrong! Maybe You are not logged in',
+              footer: '<a href="/login"> Why You are not login? </a>'
+            })
           }else{
             const voteVal = {
               votes_num: post.votes_num -= 1
@@ -197,20 +210,23 @@ const getAllPosts = (data) => {
       .then((data) => data.json())
       .then(data => {
         data.forEach((comment) =>{
-          const hr =  document.createElement('hr');
+         // const hr =  document.createElement('hr');
           const usercomment =  document.createElement('div');
 
-          const username = document.createElement('p');
-          username.innerHTML = `<span style="color:#565656; font-size:14px">Posted by</span> 
-          <span style="color:#FF2F17; font-size:16px">${document.querySelector('.username-div').children[0].innerHTML}</span>`;
+          if(document.querySelector('.username-div').children[0].innerHTML){
+            const username = document.createElement('p');
+            username.innerHTML = `<img src="images/communityIcon_9jufwkeep7f41.jpeg" class="placeholder-img"> <span style="color:#565656; font-size:14px; margin: 0px 1%;">Posted by</span> 
+            <span style="color:#FF2F17; font-size:16px">${document.querySelector('.username-div').children[0].innerHTML}</span>`;
+            usercomment.appendChild(username);
+          }
 
           const comCont =  document.createElement('p');
           comCont.textContent = comment.content;
 
-          usercomment.appendChild(username);
+
           usercomment.appendChild(comCont);
 
-          allComments.appendChild(hr);
+          //allComments.appendChild(hr);
           allComments.appendChild(usercomment);
           //console.log(comment);
         })

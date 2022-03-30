@@ -5,6 +5,8 @@ const getPostQu = require('./post/getAllPostsQu');
 const addPostQu = require('./post/addPostQu')
 const deletePostQu = require('./post/deletePostQu');
 const updateVotesQu = require('./post/updatePostVotesQu');
+const getSearchPostQu = require('./post/searchPostQu');
+
 const getCommentsQu = require('./comments/getComments');
 const addcommentQu = require('./comments/addComment');
 
@@ -17,5 +19,6 @@ module.exports = {
     deletePostQu,
     updateVotesQu,
     getCommentsQu,
-    addcommentQu
+    addcommentQu,
+    getSearchPostQu
 }
